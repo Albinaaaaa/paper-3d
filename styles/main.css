@@ -1,0 +1,235 @@
+/* font */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* variables */
+:root {
+    --index: calc(1vw +1vh);
+    --gutter: 30px;
+    --side-small: 56;
+    --side-big: 76;
+    --deept: 2850px;
+    --transition: 0.75s cubic-bezier(0.75, 0.5, 0, 1);
+}
+
+/* Обнуление стилей */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+*:focus,
+*:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    font-family: 'Playfair Display';
+    font-weight: 300;
+    color: #FFFFFF;
+    background: #000000;
+    height: 100%;
+    width: 100%;
+    font-size: calc(var(--index) * 10);
+    line-height: 1.1;
+    height: var(--deept);
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+
+/* style */
+.container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    perspective: 1500px;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.gallery {
+    transform-style: preserve-3d;
+    height: 100%;
+}
+
+.frame{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition), opacity 0.65s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.frame__title, .frame__subtitle {
+    text-align: center;
+}
+
+.frame__title {
+    margin-bottom: 45px;
+}
+
+.frame__subtitle {
+    font-size: calc(var(--index) * 4.5);
+}
+
+.frame__media {
+    position: relative;
+    background-size: contain;
+}
+/* 
+.frame__media img {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+}  */
+
+.frame__media_1 {
+    background: url('../images/01.jpg') center no-repeat ;
+    height: calc(var(--index) * var(--side-big));
+    width: calc(var(--index) * var(--side-small));
+}
+
+.frame__media_2 {
+    width: calc(var(--index) * var(--side-big));
+    height: calc(var(--index) * var(--side-small));
+}
+
+.frame__media_3 {
+    height: calc(var(--index) * var(--side-big));
+    width: calc(var(--index) * var(--side-small));
+    background: url('../images/02.jpg') center no-repeat;
+}
+
+.frame__media_4 {
+    background: url('../images/03.jpg') center no-repeat;
+    width: calc(var(--index) * var(--side-big));
+    height: calc(var(--index) * var(--side-small));
+}
+
+.frame__media_5 {
+    background: url('../images/04.jpg') center no-repeat;
+    width: calc(var(--index) * var(--side-big));
+    height: calc(var(--index) * var(--side-small));
+}
+
+.frame__media_6 {
+    background: url('../images/05.jpg') center no-repeat;
+    width: calc(var(--index) * var(--side-big));
+    height: calc(var(--index) * var(--side-small));
+}
+
+.frame__media_left {
+    right: calc(var(--side-small) / 2 * var(--index) + var(--gutter)) ;
+}
+
+.frame__media_right {
+    left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame_bg {
+    background-color: rgba(0, 0, 0, 0.88);
+    /* height: ; */
+}
+
+.sound-button {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    cursor: pointer;
+    width: 50px;
+
+    transition: opacity 0.22s ease;
+}
+
+.sound-button.paused {
+    opacity: 0.5;
+}
